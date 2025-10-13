@@ -18,7 +18,6 @@
     ./etc/swap.nix
     ./etc/time.nix
     ./etc/shell.nix
-    ./etc/mime.nix
     ./etc/blue.nix
     ./etc/nix.nix
     ./etc/console.nix

@@ -35,6 +35,25 @@
     swayimg
   ];
 
+  home-manager.sharedModules = [
+    {
+      xdg.desktopEntries.swayimg = {
+        name = "SwayImg";
+        exec = "swayimg";
+      };
+    }
+  ];
+
+  xdg.mime = {
+    enable = true;
+    defaultApplications = {
+      "image/png" = "swayimg.desktop";
+      "image/jpeg" = "swayimg.desktop";
+      "image/gif" = "swayimg.desktop";
+      "image/webp" = "swayimg.desktop";
+    };
+  };
+
   imports = [
     ./spellCheck.nix
   ];
