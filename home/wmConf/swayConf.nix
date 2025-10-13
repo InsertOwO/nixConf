@@ -3,7 +3,13 @@ let
   # Set the modifier key.
   mod = "Mod4";
   # Check if a bg has been set and set one if there hasn't.
-  bgCheck = "if [ -f ~/.local/bg.png ]; then echo ~/.local/bg.png; else echo ${builtins.path {path = ../../assets/bg.png;}}; fi";
+  bgCheck = ''\
+    if [ -f ~/.local/bg.png ]; then \
+      echo ~/.local/bg.png; \
+    else \
+      echo ${builtins.path {path = ../../assets/bg.png;}}; \
+    fi \
+  '';
 in
 {
   wayland.windowManager.sway = {

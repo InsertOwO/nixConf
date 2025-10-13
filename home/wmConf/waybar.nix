@@ -153,7 +153,6 @@
       }
 
       #workspaces button.focused, #workspaces button.active {
-        color: #${config.col.priCol};
         border-color: #${config.col.priCol};
       }
 

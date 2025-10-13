@@ -48,7 +48,7 @@
         };
     in
       getFrom 
-        "https://github.com/supermariofps/hatsune-miku-windows-linux-cursors/releases/download/1.2.6/miku-cursor-linux.tar.xz"
+        "http://github.com/supermariofps/hatsune-miku-windows-linux-cursors/releases/latest/download/miku-cursor-linux.tar.xz"
         "sha256-qxWhzTDzjMxK7NWzpMV9EMuF5rg9gnO8AZlc1J8CRjY="
         "miku-cursor-linux";
 

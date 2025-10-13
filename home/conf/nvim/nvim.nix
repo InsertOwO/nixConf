@@ -21,8 +21,8 @@
       inoremap { {}<left>
       let mapleader = "\<Space>"
       nmap <leader>c = :wqall<cr>
-      nmap <Esc> <C-\><C-n>
       nmap <leader>f :FZF<cr>
+      tnoremap <Esc> <C-\><C-n>
 
       set nocompatible
       filetype plugin on
