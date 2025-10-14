@@ -27,18 +27,23 @@
     htop.enable = true;
   };
 
-  environment.systemPackages = with pkgs; [
-    git
-    pwvucontrol
-    p7zip
-    mpv
-    swayimg
-  ];
+  environment = {
+    # For some reason setting this in home-manager doesnt work.
+    variables.EDITOR = "nvim";
+    systemPackages = with pkgs; [
+      git
+      pwvucontrol
+      p7zip
+      mpv
+      swayimg
+    ];
+  };
 
   home-manager.sharedModules = [
     {
       xdg.desktopEntries.swayimg = {
         name = "SwayImg";
+        icon = "image-x-generic";
         exec = "swayimg";
       };
     }
