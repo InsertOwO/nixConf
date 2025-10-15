@@ -29,6 +29,15 @@
           inputs.nix-flatpak.nixosModules.nix-flatpak
         ];
       };
+      medio = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = {inherit inputs;};
+        modules = [
+          ./sys/medio.nix
+          inputs.home-manager.nixosModules.home-manager
+          inputs.nix-flatpak.nixosModules.nix-flatpak
+        ];
+      };
     };
   };
 }

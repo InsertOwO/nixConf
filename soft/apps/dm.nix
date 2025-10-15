@@ -4,7 +4,6 @@
   services.displayManager.ly = {
     enable = true;
     settings = {
-      animation = "matrix";
       full_color = false;
 
       bigclock = true;
