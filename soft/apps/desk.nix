@@ -31,6 +31,7 @@
     # For some reason setting this in home-manager doesnt work.
     variables.EDITOR = "nvim";
     systemPackages = with pkgs; [
+      inkscape
       git
       pwvucontrol
       p7zip

@@ -112,9 +112,9 @@ in
 
         # Layout.
         "${mod}+a" = "floating toggle";
-        "${mod}+z" = "layout toggle tabbed";
-        "${mod}+s" = "splith";
-        "${mod}+x" = "splitv";
+        "${mod}+t" = "layout tabbed toggle";
+        "${mod}+s" = "splitv";
+        "${mod}+n" = "splith";
 
         # Focus on windows.
         "${mod}+h" = "focus left";

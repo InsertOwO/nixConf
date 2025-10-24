@@ -1,8 +1,7 @@
 {pkgs, ...}: # The one on my laptop.
 
 {
-  boot.kernelPackages = pkgs.linuxPackages_6_6;
-  hardware.enableAllFirmware = true;
+  boot.kernelPackages = pkgs.linuxPackages_6_1;
   networking = {
     hostName = "vivo";
     networkmanager.enable = true;

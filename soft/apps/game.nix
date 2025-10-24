@@ -1,7 +1,19 @@
 {pkgs, ...}:
 
 {
-  programs.steam.enable = true;
+  programs = {
+    gamescope = {
+      enable = true;
+      capSysNice = true;
+      args = [
+        "--rt"
+      ];
+    };
+    steam = {
+      enable = true;
+      gamescopeSession.enable = true;
+    };
+  };
 
   environment.systemPackages = with pkgs; [
     (discord.override {
