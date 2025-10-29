@@ -84,7 +84,7 @@ in
         "${mod}+q" = "exec foot";
         "${mod}+w" = "exec rofi -show filebrowser";
         "${mod}+Tab" = "exec rofi -show window";
-        "${mod}+e" = "exec firefox";
+        "${mod}+e" = "exec chromium";
         "${mod}+f" = "fullscreen";
         "${mod}+r" = "mode resize";
         "${mod}+c" = "kill";

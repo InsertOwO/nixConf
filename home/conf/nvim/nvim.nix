@@ -1,5 +1,12 @@
-{pkgs, ...}: # Neovim configuration.
-
+{pkgs, lib, ...}: # Neovim configuration.
+let 
+  image-nvimNew = pkgs.vimPlugins.image-nvim.overrideAttrs (old: {
+  src = pkgs.fetchzip {
+        url = "https://github.com/3rd/image.nvim/archive/v1.4.0.zip";
+        sha256 = "sha256-EaDeY8aP41xHTw5epqYjaBqPYs6Z2DABzSaVOnG6D6I=";
+      };
+    });
+in
 {
   programs.neovim = {
     enable = true;
@@ -28,6 +35,9 @@
       syntax on
     '';
 
+    extraLuaPackages = ps: [ps.magick];
+    extraPackages = [pkgs.imagemagick];
+
     plugins = with pkgs.vimPlugins; [
       # Fuzzy finding.
       fzfWrapper
@@ -46,11 +56,21 @@
 
       # For school notes.
       vimwiki
+      image-nvimNew
     ];
 
     # Lua configuration files for plugins.  
     extraLuaConfig = ''
       ${builtins.readFile ./line.lua}
+      require("image").setup({
+        backend = "sixel",
+        integrations = {
+          markdown = {
+            only_render_image_at_cursor = true,
+            only_render_image_at_cursor_mode = "inline",
+          },
+        },
+      })
     '';
 #      ${builtins.readFile ./cmp.lua}
   };

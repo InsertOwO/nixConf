@@ -3,7 +3,7 @@
 {
   boot.kernelPackages = pkgs.linuxPackages_6_1;
   networking = {
-    hostName = "vivo";
+    hostName = "insert";
     networkmanager.enable = true;
   };
 

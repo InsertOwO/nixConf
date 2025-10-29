@@ -52,6 +52,14 @@
         "sha256-qxWhzTDzjMxK7NWzpMV9EMuF5rg9gnO8AZlc1J8CRjY="
         "miku-cursor-linux";
 
+    qt = {
+      enable = true;
+      style = {
+        name = "dracula";
+        package = pkgs.dracula-qt5-theme;
+      };
+    };
+
 
   imports = [
     ./opts.nix

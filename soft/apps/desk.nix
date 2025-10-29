@@ -22,17 +22,24 @@
   };
 
   programs = {  
-    firefox.enable = true;
     yazi.enable = true;
     htop.enable = true;
+    chromium = {
+      enable = true;
+      extensions = [
+        "ddkjiahejlhfcafbddmgiahcphecmpfh" # Ublock light.
+      ];
+    };
   };
 
   environment = {
     # For some reason setting this in home-manager doesnt work.
     variables.EDITOR = "nvim";
+    variables.MANPAGER = "nvim +Man!";
     systemPackages = with pkgs; [
-      inkscape
+      ungoogled-chromium
       git
+      (zathura.override {plugins = with zathuraPkgs; [zathura_pdf_mupdf]; })
       pwvucontrol
       p7zip
       mpv
@@ -57,6 +64,7 @@
       "image/jpeg" = "swayimg.desktop";
       "image/gif" = "swayimg.desktop";
       "image/webp" = "swayimg.desktop";
+      "application/pdf" = "org.pwmt.zathura.desktop";
     };
   };
 

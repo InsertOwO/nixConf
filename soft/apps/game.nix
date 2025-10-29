@@ -24,6 +24,8 @@
     dsda-doom
     gzdoom
 
+    r2modman
+    pcsx2
     protonup
   ];
  

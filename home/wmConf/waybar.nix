@@ -107,7 +107,7 @@
       * {
         font-family: CaskaydiaMono Nerd Font;
         font-weight: bold;
-        font-size: 15px;
+        font-size: 14px;
         color:  #${config.col.txtCol};
         background: transparent;
       }

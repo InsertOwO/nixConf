@@ -17,7 +17,7 @@
   gtk = {
     enable = true;
     theme = {
-      name = "Tokyonight-Purple-Dark-Compact";
+      name = "Tokyonight-Green-Dark-Compact";
       package = (pkgs.tokyonight-gtk-theme.override {
         themeVariants = ["green"];
         sizeVariants = ["compact"];
@@ -26,7 +26,7 @@
     };
 
     iconTheme = {
-      name = "Tela-purple";
+      name = "Tela-green";
       package = pkgs.tela-icon-theme;
     };
     
