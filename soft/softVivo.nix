@@ -9,5 +9,7 @@
     ./apps/wine.nix
     ./apps/flatpak.nix
     ./apps/godot.nix
+
+    ./apps/wmaker.nix
   ];
 }

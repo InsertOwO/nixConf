@@ -20,6 +20,8 @@
       
       # For adjusting brightness.
       brightnessctl
+
+      wofi
     ];
   };
 
