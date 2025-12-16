@@ -12,16 +12,11 @@
       # Zenmode script.
       (import ../../home/wmConf/zenMode.nix {inherit pkgs;})
 
-      # Temporary, will become a rofi thingy later.
-      wlogout
-
       # Dynamically rename workspaces.
       workstyle
       
       # For adjusting brightness.
       brightnessctl
-
-      wofi
     ];
   };
 

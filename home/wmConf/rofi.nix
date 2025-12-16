@@ -3,22 +3,24 @@
 {
   programs.rofi = {
     enable = true;
-    package = pkgs.rofi-wayland;
+    package = (pkgs.rofi-unwrapped.override {
+      x11Support = false;
+        });
     font = "CaskaydiaMono Nerd Font 14";
     modes = [
       "drun"
       "filebrowser"
       "window"
-      "run"
+      "powermenu:${builtins.path {path = ./powermenu.sh;}}"
     ];
     theme = builtins.toFile "rofi-theme.rasi" ''
       /* Configuration */
       configuration {
         show-icons:          true;
         display-drun:        " ";
-        display-run:         " ";
         display-filebrowser: " ";
         display-window:      " ";
+        display-powermenu:   " ";
         drun-display-format: "{name}";
         window-format:       "{w} {c} | {t}";
       }

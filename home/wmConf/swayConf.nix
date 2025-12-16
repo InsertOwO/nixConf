@@ -23,9 +23,6 @@ in
       # Set cursor.
       seat."seat0".XCURSOR_THEME = "miku-cursor-linux 48";
 
-      # Set the gaps.
-      gaps.inner = 5;
-
       # Disable window titlebars and set the border.
       window = {
         border = 3;
@@ -36,7 +33,10 @@ in
         modifier = "${mod} normal";
       };
 
-      # Set the colors to.
+      # Set the inner gaps
+      gaps.inner = 3;
+
+      # Set the colors.
       colors = {
         focused = {
           background = "#${config.col.bgCol}";
@@ -53,6 +53,8 @@ in
           text = "#${config.col.txtCol}";
         };
       };
+
+      fonts.names = ["${config.font}"];
 
       # Set waybar as the status bar.
       bars = [
@@ -84,15 +86,19 @@ in
         "${mod}+q" = "exec foot";
         "${mod}+w" = "exec rofi -show filebrowser";
         "${mod}+Tab" = "exec rofi -show window";
-        "${mod}+e" = "exec chromium";
+        "${mod}+e" = "exec firefox";
         "${mod}+f" = "fullscreen";
         "${mod}+r" = "mode resize";
         "${mod}+c" = "kill";
       
         "${mod}+y" = "exec zenmode";
+        "${mod}+i" = "inhibit_idle open";
+        "${mod}+u" = "inhibit_idle none";
         "${mod}+p" = "gaps inner all plus 5px";
         "${mod}+o" = "gaps inner all minus 5px";
-        "${mod}+Escape" = "exec wlogout";
+        "${mod}+Escape" = "exec rofi -show powermenu";
+        "${mod}+x" = "move window to scratchpad";
+        "${mod}+z" = "scratchpad show";
 	      "${mod}+Shift+r" = "reload";
 
         # Take screenshots.

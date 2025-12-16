@@ -14,7 +14,7 @@
 
       "custom/os" = {
         format = " ";
-        on-click = "wlogout";
+        on-click = "rofi -show powermenu";
       };
       "sway/workspaces" = {
         format = "{icon}";
@@ -62,17 +62,17 @@
       };
       disk = {
         interval = 30;
-        format = "{specific_used:0.1f}/{specific_total:0.1f}󰋊";
+        format = "{specific_used:0.1f}/{specific_total:0.1f} 󰋊 ";
         states."warning" = 85;
         unit = "GB";
       };
       cpu = {
-        format = " {}% ";
+        format = " {}%  ";
         states."warning" = 80;
       };
       memory = {
         interval = 30;
-        format = " {used:0.1f}G/{total:0.1f}G ";
+        format = " {used:0.1f}G/{total:0.1f}G  ";
         states."warning" = 85;
       };
 
@@ -105,43 +105,39 @@
 
     style = ''
       * {
-        font-family: CaskaydiaMono Nerd Font;
-        font-weight: bold;
+        font-family: ${config.font};
         font-size: 14px;
+        font-weight: bold;
         color:  #${config.col.txtCol};
         background: transparent;
       }
 
       .modules-left {
-        padding-right: 15px;
         background: #${config.col.bgCol};
+        padding-right: 15px;
         border-radius: 0 0 25px 0;
       }
 
       .modules-center {
-        padding-right: 15px;
-        padding-left: 15px;
         background: #${config.col.bgCol};
+        padding-left: 15px;
+        padding-right: 15px;
         border-radius: 0 0 25px 25px;
       }
 
       .modules-right {
-        padding-left: 15px;
         background: #${config.col.bgCol};
+        padding-left: 15px;
         border-radius: 0 0 0 25px;
-      }
-
-      #custom-os {
-        font-size: 24px;
-        color: #${config.col.priCol};
       }
 
       tooltip {
         background: #${config.col.bgCol};
       }
 
-      #tray menu {
-        background: #${config.col.bgCol};
+      #custom-os {
+        font-size: 24px;
+        color: #${config.col.priCol};
       }
 
       #workspaces button {
@@ -156,16 +152,20 @@
         border-color: #${config.col.priCol};
       }
 
-      #battery.charging {
-        color:  #${config.col.cyan1};
-      }
-
-      #battery.warning {
-        color: #${config.col.red1};
+      #tray menu {
+        background: #${config.col.bgCol};
       }
 
       #network.disconnected {
       	color: #${config.col.red1};
+      }
+
+      #battery.charging, #battery.plugged {
+        color:  #${config.col.cyan1};
+      }
+
+      #battery.warning:not(.charging) {
+        color: #${config.col.red1};
       }
     '';
   };

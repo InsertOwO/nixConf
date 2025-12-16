@@ -1,7 +1,6 @@
-{pkgs, ...}: # The one on my laptop.
+{...}: # The one on my laptop.
 
 {
-  boot.kernelPackages = pkgs.linuxPackages_6_1;
   networking = {
     hostName = "insert";
     networkmanager.enable = true;
@@ -14,6 +13,7 @@
     ./usr/schoolUsr.nix
     ./hw/vivoHw.nix
 
+    ./etc/conf.nix
     ./etc/swap.nix
     ./etc/time.nix
     ./etc/shell.nix

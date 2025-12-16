@@ -4,14 +4,9 @@
   programs = {
     gamescope = {
       enable = true;
-      capSysNice = true;
-      args = [
-        "--rt"
-      ];
     };
     steam = {
       enable = true;
-      gamescopeSession.enable = true;
     };
   };
 
@@ -20,13 +15,17 @@
       withOpenASAR = true;
       withVencord = true;
      })
+
+    freetube
     prismlauncher
     dsda-doom
     gzdoom
+    (osu-lazer-bin.override {
+      nativeWayland = true;
+     })
 
-    r2modman
     pcsx2
-    protonup
+    protonup-ng
   ];
  
   environment.sessionVariables = {

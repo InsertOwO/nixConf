@@ -5,7 +5,7 @@
     enable = true;
     settings = {
       main = {
-        font = "CaskaydiaMono Nerd Font:size=12";
+        font = "${config.font}:size=12";
       };
 
       cursor.style = "underline";

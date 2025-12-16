@@ -8,7 +8,7 @@ in
 
 {
   services.swayidle = {
-    enable = true;
+#    enable = true;
     timeouts = [
       {
         timeout = 25;
@@ -68,6 +68,9 @@ in
 
       inside-ver-color = "${config.col.blue1}";
       ring-ver-color = "${config.col.blue2}";
+
+      inside-clear-color = "${config.col.yellow1}";
+      ring-clear-color = "${config.col.yellow2}";
     };
   };
 }

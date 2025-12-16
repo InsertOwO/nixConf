@@ -1,4 +1,4 @@
-{config, lib, ...}: # Options to be potentially set in home.nix.
+{osConfig, config, lib, ...}: # Options to be potentially set in home.nix.
 
 {
   options = {
@@ -6,29 +6,31 @@
     # Name of the user.
     name =  lib.mkOption {default = "insert";};
 
+    font = lib.mkOption {default = "CaskaydiaMono Nerd Font";};
+
     # Set colors(Default: Tokyo Night).
     col = {
-      black1 = lib.mkOption   {default = "15161e";};
-      red1 = lib.mkOption     {default = "f7768e";};
-      green1 = lib.mkOption   {default = "9ece6a";};
-      yellow1 = lib.mkOption  {default = "e0af68";};
-      blue1 = lib.mkOption    {default = "7aa2f7";};
-      magenta1 = lib.mkOption {default = "bb9af7";};
-      cyan1 = lib.mkOption    {default = "7dcfff";};
-      white1 = lib.mkOption   {default = "a9b1d6";};
-                                          
-      black2 = lib.mkOption   {default = "414868";};
-      red2 = lib.mkOption     {default = "ff899d";};
-      green2 = lib.mkOption   {default = "9fe044";};
-      yellow2 = lib.mkOption  {default = "faba4a";};
-      blue2 = lib.mkOption    {default = "8db0ff";};
-      magenta2 = lib.mkOption {default = "c7a9ff";};
-      cyan2 = lib.mkOption    {default = "a4daff";};
-      white2 = lib.mkOption   {default = "c0caf5";};
+      black1 = lib.mkOption   {default = "${osConfig.col.black1}"  ;};
+      red1 = lib.mkOption     {default = "${osConfig.col.red1}"    ;};
+      green1 = lib.mkOption   {default = "${osConfig.col.green1}"  ;};
+      yellow1 = lib.mkOption  {default = "${osConfig.col.yellow1}" ;};
+      blue1 = lib.mkOption    {default = "${osConfig.col.blue1}"   ;};
+      magenta1 = lib.mkOption {default = "${osConfig.col.magenta1}";};
+      cyan1 = lib.mkOption    {default = "${osConfig.col.cyan1}"   ;};
+      white1 = lib.mkOption   {default = "${osConfig.col.white1}"  ;};
+                                                               
+      black2 = lib.mkOption   {default = "${osConfig.col.black2}"  ;};
+      red2 = lib.mkOption     {default = "${osConfig.col.red2}"    ;};
+      green2 = lib.mkOption   {default = "${osConfig.col.green2}"  ;};
+      yellow2 = lib.mkOption  {default = "${osConfig.col.yellow2}" ;};
+      blue2 = lib.mkOption    {default = "${osConfig.col.blue2}"   ;};
+      magenta2 = lib.mkOption {default = "${osConfig.col.magenta2}";};
+      cyan2 = lib.mkOption    {default = "${osConfig.col.cyan2}"   ;};
+      white2 = lib.mkOption   {default = "${osConfig.col.white2}"  ;};
       
       priCol = lib.mkOption   {default = "${config.col.magenta1}";};
       secCol = lib.mkOption   {default = "${config.col.blue1}";};
-      bgCol = lib.mkOption    {default = "1a1b26";};
+      bgCol = lib.mkOption    {default = "${config.col.black1}";};
       txtCol = lib.mkOption   {default = "${config.col.white2}";};
     };
   };

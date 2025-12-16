@@ -1,22 +1,23 @@
-{...}:
+{config, ...}:
 
 {
   console.colors = [
-    "15161e"
-    "f7768e"
-    "9ece6a"
-    "e0af68"
-    "7aa2f7"
-    "bb9af7"
-    "7dcfff"
-    "a9b1d6"
-    "414868"
-    "ff899d"
-    "9fe044"
-    "faba4a"
-    "8db0ff"
-    "c7a9ff"
-    "a4daff"
-    "c0caf5"
+    "${config.col.black1}"
+    "${config.col.red1}"
+    "${config.col.green1}"
+    "${config.col.yellow1}"
+    "${config.col.blue1}"
+    "${config.col.magenta1}"
+    "${config.col.cyan1}"
+    "${config.col.white1}"
+
+    "${config.col.black2}"
+    "${config.col.red2}"
+    "${config.col.green2}"
+    "${config.col.yellow2}"
+    "${config.col.blue2}"
+    "${config.col.magenta2}"
+    "${config.col.cyan2}"
+    "${config.col.white2}"
   ];
 }

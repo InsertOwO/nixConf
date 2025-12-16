@@ -2,4 +2,5 @@
 
 {
   time.timeZone = "Europe/Brussels";
+  time.hardwareClockInLocalTime = true;
 }

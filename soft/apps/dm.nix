@@ -4,8 +4,6 @@
   services.displayManager.ly = {
     enable = true;
     settings = {
-      full_color = false;
-
       bigclock = true;
 
       clear_password = true;

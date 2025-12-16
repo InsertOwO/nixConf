@@ -8,5 +8,8 @@
   environment.systemPackages = with pkgs; [
     shotcut
     gimp3
+    krita
+
+    reaper
   ];
 }

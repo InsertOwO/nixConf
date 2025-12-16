@@ -14,6 +14,7 @@
     # automount new storage devices.
     udisks2 = {
       enable = true;
+
       mountOnMedia = true;
     };
 
@@ -22,28 +23,21 @@
   };
 
   programs = {  
+    firefox.enable = true;
     yazi.enable = true;
     htop.enable = true;
-    chromium = {
-      enable = true;
-      extensions = [
-        "ddkjiahejlhfcafbddmgiahcphecmpfh" # Ublock light.
-      ];
-    };
   };
 
   environment = {
-    # For some reason setting this in home-manager doesnt work.
-    variables.EDITOR = "nvim";
-    variables.MANPAGER = "nvim +Man!";
     systemPackages = with pkgs; [
-      ungoogled-chromium
-      git
       (zathura.override {plugins = with zathuraPkgs; [zathura_pdf_mupdf]; })
       pwvucontrol
       p7zip
       mpv
       swayimg
+
+      hyfetch
+      unrar
     ];
   };
 
