@@ -5,17 +5,16 @@
     enable = true;
     settings = {
       display = {
-        color = "blue";
+        color = "magenta";
         separator = "  ";
         size.binaryPrefix = "jedec";
       };
       logo = {
-        source = ./colonThree;
-        color."1" = "magenta";
+        source = ./meSmoll;
+        color."1" = "white";
         padding = {
           right = 4;
           left = 1;
-          top = 1;
         };
       };
       modules = [

@@ -20,6 +20,9 @@ in
       # Set the wallpaper.
       output."*".bg = "$(${bgCheck}) fill";
 
+      output."eDP-1".pos = "0 0";
+      output."HDMI-A-1".pos = "-1024 0";
+
       # Set cursor.
       seat."seat0".XCURSOR_THEME = "miku-cursor-linux 48";
 
@@ -86,7 +89,7 @@ in
         "${mod}+q" = "exec foot";
         "${mod}+w" = "exec rofi -show filebrowser";
         "${mod}+Tab" = "exec rofi -show window";
-        "${mod}+e" = "exec firefox";
+        "${mod}+e" = "exec librewolf";
         "${mod}+f" = "fullscreen";
         "${mod}+r" = "mode resize";
         "${mod}+c" = "kill";
@@ -159,5 +162,10 @@ in
         "${mod}+Shift+0" = "move container to workspace number 10";
       };
     };
+    extraConfig = ''
+      output eDP-1 scale 1.75
+      workspace 10 output HDMI-A-1
+      output HDMI-A-1 mode 1024x768
+    '';
   };
 }

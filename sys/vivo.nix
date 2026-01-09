@@ -1,8 +1,8 @@
-{...}: # The one on my laptop.
+{pkgs, ...}: # The one on my laptop.
 
 {
   networking = {
-    hostName = "insert";
+    hostName = "vivo";
     networkmanager.enable = true;
   };
 

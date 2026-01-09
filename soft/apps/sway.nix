@@ -17,6 +17,8 @@
       
       # For adjusting brightness.
       brightnessctl
+
+      xorg.xrandr
     ];
   };
 

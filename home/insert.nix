@@ -12,6 +12,7 @@
 
   gtk = {
     enable = true;
+    gtk2.enable = false;
     theme = {
       name = "Tokyonight-Purple-Dark-Compact";
       package = (pkgs.tokyonight-gtk-theme.override {

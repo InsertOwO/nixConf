@@ -1,4 +1,4 @@
-{pkgs, ...}:
+{lib, config, pkgs, ...}:
 
 {
   programs = {
@@ -15,9 +15,11 @@
       withOpenASAR = true;
       withVencord = true;
      })
+    prismlauncher
+
+    r2modman
 
     freetube
-    prismlauncher
     dsda-doom
     gzdoom
     (osu-lazer-bin.override {
@@ -25,9 +27,9 @@
      })
 
     pcsx2
+    vkquake
     protonup-ng
   ];
- 
   environment.sessionVariables = {
     STEAM_EXTRA_COMPAT_TOOLS_PATHS =
     "\${HOME}/.steam/root/compatibilitytools.d";
