@@ -1,16 +1,19 @@
 {pkgs, lib, ...}: # Neovim configuration.
+
 {
+  home.packages = with pkgs; [ ripgrep ccls nil ];
   programs.neovim = {
     enable = true;
+    vimAlias = true;
     viAlias = true;
 
     # Set some options.
     extraConfig = ''
       set number
       set relativenumber
-      set cindent
       set expandtab
       set tabstop=2
+      set softtabstop=2
       set shiftwidth=2
       inoremap " ""<left>
       inoremap ( ()<left>
@@ -18,44 +21,67 @@
       inoremap { {}<left>
       let mapleader = "\<Space>"
       nmap <leader>c = :wqall<cr>
-      nmap <leader>f :FZF<cr>
+
+      nnoremap <leader>q :bo 6sp +te<cr> i
+
       tnoremap <Esc> <C-\><C-n>
       colorscheme tokyonight-night
 
+      nmap <leader>f = :Telescope find_files<cr>
+      nmap <leader>g = :Telescope live_grep<cr>
+      nmap <leader>h = :Telescope buffers<cr>
+
+      au InsertEnter * lua vim.diagnostic.enable(false)
+      au InsertLeave * lua vim.diagnostic.enable(true)
+      nmap <leader>d :lua vim.diagnostic.open_float()<cr>
+
       set nocompatible
       filetype plugin on
-      syntax on
-    '';
+      '';
 
     plugins = with pkgs.vimPlugins; [
       # Fuzzy finding.
-      fzfWrapper
+      telescope-nvim
+      telescope-fzf-native-nvim
+      plenary-nvim
 
       # Make stuff look good.
+      (nvim-treesitter.withPlugins (p: [p.c p.nix]))
       lualine-nvim
       tokyonight-nvim
 
-      # Autocompletion(gonna add this into nix shells later.).
-#      nvim-lspconfig
-#      cmp-nvim-lsp
-#      cmp-buffer
-#      cmp-path
-#      cmp-cmdline
-#      nvim-cmp
+      # Autocompletion.
+      nvim-lspconfig
+      cmp-nvim-lsp
+      cmp-buffer
+      cmp-path
+      cmp-cmdline
+      nvim-cmp
 
-      # For school notes.
+      # Notetaking
       vimwiki
     ];
 
     # Lua configuration files for plugins.  
     extraLuaConfig = ''
+      ${builtins.readFile ./cmp.lua}
       ${builtins.readFile ./line.lua}
+      require'nvim-treesitter.configs'.setup {
+        highlight = {
+          enable = true,
+        },
+        indent = {
+          enable = true,
+        },
+      }
+
+      require('telescope').load_extension('fzf')
+
       require("tokyonight").setup({
         style = "night",
         transparent = true,
       })
       vim.cmd[[colorscheme tokyonight]]
     '';
-#      ${builtins.readFile ./cmp.lua}
   };
 }

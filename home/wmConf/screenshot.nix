@@ -3,7 +3,7 @@
 pkgs.writeShellScriptBin "screenshot" ''
 case $@ in
   screen)
-    ${pkgs.grim}/bin/grim -c - | ${pkgs.wl-clipboard}/bin/wl-copy
+     ${pkgs.grim}/bin/grim -o $(swaymsg -t get_outputs | ${pkgs.jq}/bin/jq -r '.[] | select(.focused) | .name') - | ${pkgs.wl-clipboard}/bin/wl-copy
     ;;
   region)
     ${pkgs.slurp}/bin/slurp | ${pkgs.grim}/bin/grim -g - - | ${pkgs.wl-clipboard}/bin/wl-copy

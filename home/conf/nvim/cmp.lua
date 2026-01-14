@@ -11,11 +11,10 @@ cmp.setup({
     -- require("cmp.config").set_onetime({ sources = {} })
   end,
 },
-
-window = {
-  completion = cmp.config.window.bordered(),
-  documentation = cmp.config.window.bordered(),
-},
+-- window = {
+--   completion = cmp.config.window.,
+--   documentation = cmp.config.window.bordered(),
+-- },
 
 mapping = cmp.mapping.preset.insert({
   ['<C-b>'] = cmp.mapping.scroll_docs(-4),
@@ -54,13 +53,12 @@ cmp.setup.cmdline(':', {
 -- Set up lspconfig.
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
-require('lspconfig')['rust_analyzer'].setup {
+vim.lsp.enable('ccls')
+vim.lsp.config('ccls', {
   capabilities = capabilities
-}
-require('lspconfig')['ccls'].setup {
+})
+vim.lsp.enable('nil_ls')
+vim.lsp.config('nil_ls', {
   capabilities = capabilities
-}
-require('lspconfig')['nil_ls'].setup {
-  capabilities = capabilities
-}
+})
 
