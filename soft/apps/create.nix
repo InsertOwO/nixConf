@@ -1,15 +1,15 @@
 {pkgs, ...}:
 
 {
-  programs.obs-studio = {
-    enable = true;
-  };
+   programs.obs-studio = {
+     enable = true;
+   };
 
   environment.systemPackages = with pkgs; [
-    shotcut
+    # shotcut
     gimp3
     krita
 
-    reaper
+    # reaper
   ];
 }

@@ -1,61 +1,17 @@
-{config, pkgs, ...}: # Home configuration for swayLock.
-
- let
-  # Lock and display commands.
-  lock = "${pkgs.swaylock}/bin/swaylock --daemonize";
-  display = state: "${pkgs.sway}/bin/swaymsg 'output * power ${state}'";
-in
+{config, ...}: # Home configuration for swayLock.
 
 {
-  services.swayidle = {
-#    enable = true;
-    timeouts = [
-      {
-        timeout = 25;
-        command = "${pkgs.libnotify}/bin/notify-send 'Locking in 5 seconds' -t 5000";
-      }
-      {
-        timeout = 30;
-        command = display "off";
-        resumeCommand = display "on";
-      }
-      # Leave time to resume quickly before really locking.
-      {
-        timeout = 35;
-        command = ("${pkgs.systemd}/bin/systemctl suspend") + "; " + lock;
-      }
-    ];
-    events = [
-      {
-        event = "before-sleep";
-        command = lock;
-      }
-      {
-        event = "after-resume";
-        command = display "on";
-      }
-      {
-        event = "lock";
-        command = (display "off") + "; " + lock;
-      }
-      {
-        event = "unlock";
-        command = display "on";
-      }
-    ];
-  };
-
   programs.swaylock = {
     enable = true;
     settings = {
       image = "~/.local/bg.png";
       scaling = "fill";
-      font = "CaskaydiaMono Nerd Font";
+      font = "${config.font}";
       line-uses-ring = true;
 
-      text-color = "${config.col.txtCol}";
-      layout-text-color = "${config.col.txtCol}";
-      layout-bg-color = "${config.col.bgCol}";
+      text-color = "${config.pal.fg1}";
+      layout-text-color = "${config.pal.fg1}";
+      layout-bg-color = "${config.pal.bg1}";
 
       key-hl-color = "${config.col.green1}";
       separator-color = "${config.col.green1}";

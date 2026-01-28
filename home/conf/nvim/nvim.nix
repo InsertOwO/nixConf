@@ -1,10 +1,9 @@
-{pkgs, lib, ...}: # Neovim configuration.
+{pkgs, ...}: # Neovim configuration.
 
 {
   home.packages = with pkgs; [ ripgrep ccls nil ];
   programs.neovim = {
     enable = true;
-    vimAlias = true;
     viAlias = true;
 
     # Set some options.
@@ -34,10 +33,7 @@
       au InsertEnter * lua vim.diagnostic.enable(false)
       au InsertLeave * lua vim.diagnostic.enable(true)
       nmap <leader>d :lua vim.diagnostic.open_float()<cr>
-
-      set nocompatible
-      filetype plugin on
-      '';
+    '';
 
     plugins = with pkgs.vimPlugins; [
       # Fuzzy finding.
@@ -57,9 +53,6 @@
       cmp-path
       cmp-cmdline
       nvim-cmp
-
-      # Notetaking
-      vimwiki
     ];
 
     # Lua configuration files for plugins.  
@@ -83,5 +76,23 @@
       })
       vim.cmd[[colorscheme tokyonight]]
     '';
+  };
+  programs.vim = {
+    enable = true;
+    packageConfigurable = pkgs.vim;
+    plugins = [pkgs.vimPlugins.vimwiki];
+    extraConfig = ''
+      let mapleader = "\<Space>"
+      set expandtab
+      set tabstop=2
+      set softtabstop=2
+      set shiftwidth=2
+
+      set nocompatible
+      filetype on
+      syntax on
+      let g:vimwiki_text_ignore_newline = 0
+    '';
+
   };
 }

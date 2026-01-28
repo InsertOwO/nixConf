@@ -8,9 +8,9 @@
       border-size = 3;
       margin = 5;
       font = "${config.font}";
-      text-color = "#${config.col.txtCol}";
-      border-color = "#${config.col.secCol}";
-      background-color = "#${config.col.bgCol}";
+      text-color = "#${config.pal.fg1}";
+      border-color = "#${config.pal.sec1}";
+      background-color = "#${config.pal.bg1}";
     };
   };
 }

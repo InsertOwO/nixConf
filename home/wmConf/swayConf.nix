@@ -10,8 +10,7 @@ let
       echo ${builtins.path {path = ../../assets/bg.png;}}; \
     fi \
   '';
-in
-{
+in {
   wayland.windowManager.sway = {
     # Let home-manager configure sway
     enable = true;
@@ -37,23 +36,23 @@ in
       };
 
       # Set the inner gaps
-      gaps.inner = 3;
+      gaps.inner = 5;
 
       # Set the colors.
       colors = {
         focused = {
-          background = "#${config.col.bgCol}";
-          border = "#${config.col.priCol}";
-          childBorder = "#${config.col.priCol}";
-          indicator = "#${config.col.secCol}";
-          text = "#${config.col.txtCol}";
+          background = "#${config.pal.bg1}";
+          border = "#${config.pal.pri1}";
+          childBorder = "#${config.pal.pri1}";
+          indicator = "#${config.pal.sec1}";
+          text = "#${config.pal.fg1}";
         };
         unfocused = {
-          background = "#${config.col.bgCol}";
-          border = "#${config.col.bgCol}";
-          childBorder = "#${config.col.bgCol}";
-          indicator = "#${config.col.bgCol}";
-          text = "#${config.col.txtCol}";
+          background = "#${config.pal.bg1}";
+          border = "#${config.pal.bg1}";
+          childBorder = "#${config.pal.bg1}";
+          indicator = "#${config.pal.bg1}";
+          text = "#${config.pal.fg1}";
         };
       };
 
@@ -70,11 +69,6 @@ in
       # Open workspace 1 by default.
       defaultWorkspace = "workspace number 1";
 
-      # Set screen to go idle after a certain time.
-      startup = [
-        {command = "workstyle";}
-      ];
-
       # Keyboard layout.
       input."*" = {
         xkb_layout = "us,be";
@@ -87,21 +81,19 @@ in
         # Launch and kill apps.
         "${mod}+d" = "exec rofi -show drun";
         "${mod}+q" = "exec foot";
+        "${mod}+e" = "exec firefox";
         "${mod}+w" = "exec rofi -show filebrowser";
         "${mod}+Tab" = "exec rofi -show window";
-        "${mod}+e" = "exec librewolf";
         "${mod}+f" = "fullscreen";
         "${mod}+r" = "mode resize";
         "${mod}+c" = "kill";
       
         "${mod}+y" = "exec zenmode";
-        "${mod}+i" = "inhibit_idle open";
-        "${mod}+u" = "inhibit_idle none";
         "${mod}+p" = "gaps inner all plus 5px";
         "${mod}+o" = "gaps inner all minus 5px";
-        "${mod}+Escape" = "exec rofi -show powermenu";
         "${mod}+x" = "move window to scratchpad";
         "${mod}+z" = "scratchpad show";
+        "${mod}+Escape" = "exec rofi -show powermenu";
 	      "${mod}+Shift+r" = "reload";
 
         # Take screenshots.

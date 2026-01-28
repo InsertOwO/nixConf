@@ -17,8 +17,6 @@
       
       # For adjusting brightness.
       brightnessctl
-
-      xorg.xrandr
     ];
   };
 
@@ -34,6 +32,5 @@
 
   imports = [
     ./desk.nix
-    ./font.nix
   ];
 }

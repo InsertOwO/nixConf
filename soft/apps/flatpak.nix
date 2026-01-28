@@ -15,8 +15,6 @@
           "!x11"
           "!fallback-x11"
         ];
-
-        Enviroment.GTK_THEME = "Tokyonight-Purple-Dark-Compact";
       };
     };
   };

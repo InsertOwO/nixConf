@@ -11,10 +11,8 @@
       cursor.style = "underline";
 
       colors = {
-        alpha = 0.9;
-
-        foreground="${config.col.txtCol}";
-        background="${config.col.bgCol}";
+        foreground="${config.col.white2}";
+        background="${config.col.black1}";
 
         regular0="${config.col.black1}";
         regular1="${config.col.red1}";
@@ -34,7 +32,7 @@
         bright6="${config.col.cyan2}";
         bright7="${config.col.white2}";
 
-        urls="${config.col.priCol}";
+        urls="${config.pal.pri1}";
       };
     };
   };

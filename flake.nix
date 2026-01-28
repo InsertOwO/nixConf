@@ -25,7 +25,7 @@
         specialArgs = {inherit inputs;};
         modules = [
           ./sys/vivo.nix
-          inputs.home-manager.nixosModules.home-manager
+            inputs.home-manager.nixosModules.home-manager
           inputs.nix-flatpak.nixosModules.nix-flatpak
         ];
       };

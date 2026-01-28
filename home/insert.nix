@@ -1,12 +1,20 @@
-{config, pkgs, ...}: # Home file for Insert user.
+{pkgs, ...}: # Home file for Insert user.
 
 {
   programs.home-manager.enable = true;
+  font = "DepartureMono Nerd Font";
+  palette = {
+    name = "TokyoNight";
+    pri = "magenta";
+    sec = "blue";
+    fg = "white";
+    bg = "black";
+  };
 
   # Enable home manager for all users.
   home = {
-    username = "${config.name}";
-    homeDirectory = "/home/${config.name}";
+    username = "insert";
+    homeDirectory = "/home/insert";
     stateVersion = "25.05";
   };
 
@@ -23,10 +31,9 @@
     };
 
     iconTheme = {
-      name = "Tela-purple";
-      package = pkgs.tela-icon-theme;
+      name = "breeze-dark";
+      package = pkgs.kdePackages.breeze-icons;
     };
-    
     cursorTheme.size = 48;
     cursorTheme.name = "miku-cursor-linux";
   };
@@ -53,16 +60,8 @@
         "sha256-qxWhzTDzjMxK7NWzpMV9EMuF5rg9gnO8AZlc1J8CRjY="
         "miku-cursor-linux";
 
-    qt = {
-      enable = true;
-      style = {
-        name = "dracula";
-        package = pkgs.dracula-qt5-theme;
-      };
-    };
-
-
   imports = [
+    ./themes/retro/theme.nix
     ./opts.nix
   ];
 }

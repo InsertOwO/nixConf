@@ -1,4 +1,4 @@
-{pkgs, ...}: # The one on the media station.
+{...}: # The one on the media station.
 
 {
   networking = {
@@ -9,14 +9,12 @@
   imports = [
     ../soft/softFujin.nix
 
-    ./usr/insertUsr.nix
     ./hw/fujinHw.nix
 
     ./etc/swap.nix
     ./etc/time.nix
     ./etc/shell.nix
     ./etc/nix.nix
-    ./etc/console.nix
     ./boot/bootMin.nix
   ];
 }

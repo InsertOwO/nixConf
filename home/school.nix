@@ -1,33 +1,33 @@
-{config, pkgs, ...}: # Home file for School user.
+{pkgs, ...}: # Home file for School user.
 
 {
   programs.home-manager.enable = true;
-
-  name = "school";
-  col.priCol = "${config.col.green1}";
-  col.secCol = "${config.col.yellow1}";
+  font = "DepartureMono Nerd Font";
+  palette = {
+    name = "Pure";
+    pri = "blue";
+    sec = "cyan";
+    fg = "black";
+    bg = "white";
+  };
 
   # Enable home manager for all users.
   home = {
-    username = "${config.name}";
-    homeDirectory = "/home/${config.name}";
+    username = "school";
+    homeDirectory = "/home/school";
     stateVersion = "25.05";
   };
 
   gtk = {
     enable = true;
     theme = {
-      name = "Tokyonight-Green-Dark-Compact";
-      package = (pkgs.tokyonight-gtk-theme.override {
-        themeVariants = ["green"];
-        sizeVariants = ["compact"];
-        colorVariants = ["dark"];
-      });
+      name = "Chicago95";
+      package = pkgs.chicago95;
     };
 
     iconTheme = {
-      name = "Tela-green";
-      package = pkgs.tela-icon-theme;
+      name = "Chicago95";
+      package = pkgs.chicago95;
     };
     
     cursorTheme.size = 48;
@@ -58,6 +58,7 @@
 
 
   imports = [
+    ./themes/retro/theme.nix
     ./opts.nix
   ];
 }

@@ -1,4 +1,4 @@
-{...}:
+{config, ...}:
 
 {
   programs.waybar = {
@@ -102,5 +102,70 @@
         format-alt = "{:%d/%m/%y}";
       };
     };
+    style = ''
+      * {
+        font-family: ${config.font};
+        font-size: 14px;
+        font-weight: bold;
+        color:  #${config.pal.fg1};
+        background: transparent;
+      }
+
+      .modules-left {
+        background: #${config.pal.bg1};
+        padding-right: 15px;
+        border-radius: 0 0 25px 0;
+      }
+
+      .modules-center {
+        background: #${config.pal.bg1};
+        padding-left: 15px;
+        padding-right: 15px;
+        border-radius: 0 0 25px 25px;
+      }
+
+      .modules-right {
+        background: #${config.pal.bg1};
+        padding-left: 15px;
+        border-radius: 0 0 0 25px;
+      }
+
+      tooltip {
+        background: #${config.pal.bg1};
+      }
+
+      #custom-os {
+        font-size: 24px;
+        color: #${config.pal.pri1};
+      }
+
+      #workspaces button {
+        border-style: none none solid;
+        border-color: #${config.pal.fg1};
+        border-width: 3px;
+        border-radius: 0px;
+        padding: 0px;
+      }
+
+      #workspaces button.focused, #workspaces button.active {
+        border-color: #${config.pal.pri1};
+      }
+
+      #tray menu {
+        background: #${config.pal.bg1};
+      }
+
+      #network.disconnected {
+        color: #${config.col.red1};
+      }
+
+      #battery.charging, #battery.plugged {
+        color:  #${config.col.cyan1};
+      }
+
+      #battery.warning:not(.charging) {
+        color: #${config.col.red1};
+      }
+    '';
   };
 }

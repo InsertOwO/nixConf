@@ -3,6 +3,7 @@
 {
   imports = [
     ./foot.nix
+    ./zathura.nix
     ./nvim/nvim.nix
     ./fastfetch.nix
   ];

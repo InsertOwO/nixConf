@@ -1,4 +1,4 @@
-{pkgs, ...}: # The one on my laptop.
+{...}: # The one on my laptop.
 
 {
   networking = {
@@ -13,7 +13,6 @@
     ./usr/schoolUsr.nix
     ./hw/vivoHw.nix
 
-    ./etc/conf.nix
     ./etc/swap.nix
     ./etc/time.nix
     ./etc/shell.nix
@@ -22,4 +21,7 @@
     ./etc/console.nix
     ./boot/boot.nix
   ];
+
+  # This number is too complex to explain, just keep off it.
+  system.stateVersion = "25.05";
 }
